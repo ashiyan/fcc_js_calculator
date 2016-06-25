@@ -4,7 +4,7 @@ document.addEventListener( "DOMContentLoaded", function() {
 	// Переменные для отображения числа на главном дисплее и результирующего выражения на втором дисплее
 	var number_display, expression_display;
 	
-	var round_type = 2;
+	var round_type = 100;
 	
 	// Функция сброса переменных, отображающихся на дисплее
 	function reset() { number_display = "0"; expression_display = ""; };
@@ -13,7 +13,7 @@ document.addEventListener( "DOMContentLoaded", function() {
 	function deleteLast() { number_display = number_display.substring(0, number_display.length - 1); if (number_display.length === 0) number_display = "0"; };
 	
 	// Функция проверки наличия десятичного разделителя в конце числа
-	function isCommaLast() { return /\./.test(number_display[number_display.length - 1]) };
+	function isCommaLast() { return /\./.test(number_display[number_display.length - 1]); };
 	
 	// Функция вывода переменных на дисплеи
 	function refresh() {
@@ -28,18 +28,18 @@ document.addEventListener( "DOMContentLoaded", function() {
 	function initialize_user_input(event) {
 		switch(true) {
 		// Верхняя строка цифр
-			case (event.keyCode >= 48 && event.keyCode <= 57): return String(event.keyCode - 48); break;
+			case (event.keyCode >= 48 && event.keyCode <= 57): return String(event.keyCode - 48);
 		// Цифры на NumPad-клавиатуре
-			case (event.keyCode >= 96 && event.keyCode <= 105): return String(event.keyCode - 96); break;
+			case (event.keyCode >= 96 && event.keyCode <= 105): return String(event.keyCode - 96);
 		// Знаки математических операций на обычной и NumPad-клавиатуре
-			case (event.keyCode === 106): return "*"; break;
-			case (event.keyCode === 109): return "-"; break;
-			case (event.keyCode === 107): return "+"; break;
-			case (event.keyCode === 111): return "/"; break;
-			case (event.keyCode === 110): return "."; break;
-			case (event.keyCode === 13): return "="; break;
-			case (event.keyCode === 8): return "delete"; break;
-			case (event.keyCode === 46): return "clear"; break;
+			case (event.keyCode === 106): return "*";
+			case (event.keyCode === 109): return "-";
+			case (event.keyCode === 107): return "+";
+			case (event.keyCode === 111): return "/";
+			case (event.keyCode === 110): return ".";
+			case (event.keyCode === 13): return "=";
+			case (event.keyCode === 8): return "delete";
+			case (event.keyCode === 46): return "clear";
 			default: return event.target.dataset.meaning;
 		}
 	}
@@ -49,9 +49,9 @@ document.addEventListener( "DOMContentLoaded", function() {
 		document.querySelector(".black-wrap").style.display = "block";
 		
 		document.querySelector(".popup-round-button").addEventListener("click", function() {
-			if (document.querySelector(".popup-round-r2").checked) round_type = 2;
-			else if (document.querySelector(".popup-round-r3").checked) round_type = 3;
-			else if (document.querySelector(".popup-round-r4").checked) round_type = 4;
+			if (document.querySelector(".popup-round-r2").checked) round_type = 100;
+			else if (document.querySelector(".popup-round-r3").checked) round_type = 1000;
+			else if (document.querySelector(".popup-round-r4").checked) round_type = 10000;
 			
 			document.querySelector(".popup-round").style.display = "none";
 			document.querySelector(".black-wrap").style.display = "none";
@@ -63,7 +63,6 @@ document.addEventListener( "DOMContentLoaded", function() {
 	
 	
 	function calculate(event) {
-		
 		
 		// Переменная, которая хранит ввод пользователя
 		var user_input = initialize_user_input(event);
@@ -119,7 +118,13 @@ document.addEventListener( "DOMContentLoaded", function() {
 					// Добавляем к результирующему выражению число
 					expression_display += number_display;
 					// На главный дисплей выводим результат математического выражения, полученного из строки в результирующем дисплее
-					number_display = String(eval(expression_display));
+					var result = eval(expression_display);
+		
+					//alert((result - Math.floor(result)) !== 0);
+					
+					if ((result - Math.floor(result)) !== 0) result = Math.round(result * round_type) / round_type;
+					
+					number_display = String(result);
 					// Сбрасываем результирующий дисплей
 					expression_display = "";
 				}
@@ -131,8 +136,6 @@ document.addEventListener( "DOMContentLoaded", function() {
 		
 		// Вывод на дисплей переменных после всех операций над ними
 		refresh();
-		
-		document.querySelector("." + event.target.classList[1]).setAttribute("animation", "pulse 200ms ease-in-out");
 	};
 	
 	

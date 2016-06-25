@@ -1,3 +1,4 @@
+dark_blue_transparent =	rgba(44,62,80,0.7)
 dark_blue =	rgb(44,62,80)
 dark_white = rgb(222,222,222)
 light_blue = rgb(53,73,93)
@@ -10,7 +11,8 @@ bright_blue = rgb(48,164,234)
 	src url(../fonts/Lekton-Regular.ttf)
 
 body
-	background-color light_gray
+	background-color rgb(0,44,92)
+	background-image url(../img/bg.png)
 	font-family "Lekton"
 	color dark_white
 	-webkit-user-select none
@@ -24,7 +26,7 @@ body
 	height 600px
 	padding 5px
 	border-spacing 10px
-	background-color dark_blue
+	background-color dark_blue_transparent
 	
 .black-wrap
 	position absolute
@@ -125,12 +127,9 @@ body
 			background-color light_blue
 			transition 100ms
 			
-.settings-description
-	text-align right
-	vertical-align middle
-	font-size 80%
-			
 .settings
+	position absolute
+	margin 0 5px
 	fill light_gray
 	width 25px
 	height 25px
@@ -138,4 +137,4 @@ body
 		fill bright_blue
 		transition 100ms
 	&-cell
-		text-align left
+		text-align center
