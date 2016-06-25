@@ -6,6 +6,28 @@ light_gray = rgb(111,121,132)
 bright_blue = rgb(48,164,234)
 
 @font-face
+	font-family "VTKS Storm"
+	font-style normal
+	src url(../fonts/VTKS-Storm.ttf)
+
+.mark
+	position fixed
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	line-height 60px
+	width 250px
+	height 130px
+	margin 15px
+	font-family "VTKS Storm"
+	z-index -1
+	&-fcc
+		font-size 500%
+	&-challenge
+		font-size 400%
+	
+@font-face
 	font-family "Lekton"
 	font-style normal
 	src url(../fonts/Lekton-Regular.ttf)
@@ -21,7 +43,7 @@ body
 	position absolute
 	left 0
 	right 0
-	margin 100px auto
+	margin 30px auto
 	width 450px
 	height 600px
 	padding 5px
