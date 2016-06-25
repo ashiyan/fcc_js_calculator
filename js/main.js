@@ -4,6 +4,7 @@ document.addEventListener( "DOMContentLoaded", function() {
 	// Переменные для отображения числа на главном дисплее и результирующего выражения на втором дисплее
 	var number_display, expression_display;
 	
+	// Функция для хранения типа округления
 	var round_type = 100;
 	
 	// Функция сброса переменных, отображающихся на дисплее
@@ -44,10 +45,13 @@ document.addEventListener( "DOMContentLoaded", function() {
 		}
 	}
 	
+	// Функция, описывающая работу окна настроек округления
 	function show_popup() {
+		// Отображение окна настроек и подложки
 		document.querySelector(".popup-round").style.display = "flex";
 		document.querySelector(".black-wrap").style.display = "block";
 		
+		// Изменение переменной при выборе типа округления и закрытие окна настроек и подложки по нажатию "OK"
 		document.querySelector(".popup-round-button").addEventListener("click", function() {
 			if (document.querySelector(".popup-round-r2").checked) round_type = 100;
 			else if (document.querySelector(".popup-round-r3").checked) round_type = 1000;
@@ -157,6 +161,7 @@ document.addEventListener( "DOMContentLoaded", function() {
 	// Обработка события нажатия клавиш клавиатуры. Обработчик тот же, функция "calculate"
 	document.addEventListener("keydown", calculate);
 	
+	// Подписка на событие "click" кнопки ".settings". Обработчик события: функция "show_popup" - вывод окна настроек
 	document.querySelector(".settings").addEventListener("click", show_popup);
 	
 });
