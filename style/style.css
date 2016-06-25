@@ -1,4 +1,41 @@
 @font-face {
+  font-family: "VTKS Storm";
+  font-style: normal;
+  src: url("../fonts/VTKS-Storm.ttf");
+}
+.mark {
+  position: fixed;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  line-height: 60px;
+  width: 250px;
+  height: 130px;
+  margin: 15px;
+  font-family: "VTKS Storm";
+  z-index: -1;
+}
+.mark-fcc {
+  font-size: 500%;
+}
+.mark-challenge {
+  font-size: 400%;
+}
+@font-face {
   font-family: "Lekton";
   font-style: normal;
   src: url("../fonts/Lekton-Regular.ttf");
@@ -14,7 +51,7 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  margin: 100px auto;
+  margin: 30px auto;
   width: 450px;
   height: 600px;
   padding: 5px;
