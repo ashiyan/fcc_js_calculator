@@ -1,9 +1,4 @@
 @font-face {
-  font-family: "Dry Brush";
-  font-style: normal;
-  src: url("../fonts/Dry-Brush.ttf");
-}
-@font-face {
   font-family: "Lekton";
   font-style: normal;
   src: url("../fonts/Lekton-Regular.ttf");
@@ -14,13 +9,6 @@ body {
   font-family: "Lekton";
   color: #dedede;
   -webkit-user-select: none;
-}
-.mark {
-  font-family: "Dry Brush";
-  line-height: 17px;
-  vertical-align: text-top;
-  font-size: 90%;
-  color: rgba(255,255,255,0.4);
 }
 .calculator {
   position: absolute;
