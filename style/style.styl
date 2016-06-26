@@ -1,32 +1,15 @@
 dark_blue_transparent =	rgba(44,62,80,0.7)
 dark_blue =	rgb(44,62,80)
 dark_white = rgb(222,222,222)
-light_blue = rgb(53,73,93)
+light_blue = rgb(53, 80, 106)
 light_gray = rgb(111,121,132)
 bright_blue = rgb(48,164,234)
 
 @font-face
-	font-family "VTKS Storm"
+	font-family "Dry Brush"
 	font-style normal
-	src url(../fonts/VTKS-Storm.ttf)
+	src url(../fonts/Dry-Brush.ttf)
 
-.mark
-	position fixed
-	display flex
-	flex-direction column
-	justify-content center
-	align-items center
-	line-height 60px
-	width 250px
-	height 130px
-	margin 15px
-	font-family "VTKS Storm"
-	z-index -1
-	&-fcc
-		font-size 500%
-	&-challenge
-		font-size 400%
-	
 @font-face
 	font-family "Lekton"
 	font-style normal
@@ -39,6 +22,13 @@ body
 	color dark_white
 	-webkit-user-select none
 	
+.mark
+	font-family "Dry Brush"
+	line-height 17px
+	vertical-align text-top
+	font-size 90%
+	color rgba(255,255,255,0.4)
+		
 .calculator
 	position absolute
 	left 0

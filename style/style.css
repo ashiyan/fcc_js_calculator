@@ -1,39 +1,7 @@
 @font-face {
-  font-family: "VTKS Storm";
+  font-family: "Dry Brush";
   font-style: normal;
-  src: url("../fonts/VTKS-Storm.ttf");
-}
-.mark {
-  position: fixed;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  line-height: 60px;
-  width: 250px;
-  height: 130px;
-  margin: 15px;
-  font-family: "VTKS Storm";
-  z-index: -1;
-}
-.mark-fcc {
-  font-size: 500%;
-}
-.mark-challenge {
-  font-size: 400%;
+  src: url("../fonts/Dry-Brush.ttf");
 }
 @font-face {
   font-family: "Lekton";
@@ -46,6 +14,13 @@ body {
   font-family: "Lekton";
   color: #dedede;
   -webkit-user-select: none;
+}
+.mark {
+  font-family: "Dry Brush";
+  line-height: 17px;
+  vertical-align: text-top;
+  font-size: 90%;
+  color: rgba(255,255,255,0.4);
 }
 .calculator {
   position: absolute;
@@ -109,26 +84,15 @@ body {
   border: 1px solid #30a4ea;
 }
 .btn:hover {
-  background-color: #35495d;
-  -webkit-transition: 100ms;
+  background-color: #35506a;
   transition: 100ms;
 }
 .popup-round {
   width: 350px;
   height: 150px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: distribute;
   justify-content: space-around;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
   background-color: #2c3e50;
   position: absolute;
@@ -141,18 +105,8 @@ body {
   position: fixed;
 }
 .popup-round-options {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   width: 200px;
   height: 90px;
@@ -168,13 +122,11 @@ body {
   vertical-align: middle;
 }
 .popup-round-radio:hover {
-  background-color: #35495d;
-  -webkit-transition: 100ms;
+  background-color: #35506a;
   transition: 100ms;
 }
 .popup-round-radio:checked {
   background-color: #30a4ea;
-  -webkit-transition: 100ms;
   transition: 100ms;
 }
 .popup-round-button {
@@ -187,8 +139,7 @@ body {
   border-radius: 40px;
 }
 .popup-round-button:hover {
-  background-color: #35495d;
-  -webkit-transition: 100ms;
+  background-color: #35506a;
   transition: 100ms;
 }
 .settings {
@@ -200,7 +151,6 @@ body {
 }
 .settings:hover {
   fill: #30a4ea;
-  -webkit-transition: 100ms;
   transition: 100ms;
 }
 .settings-cell {
