@@ -4,11 +4,14 @@ document.addEventListener( "DOMContentLoaded", function() {
 	// Переменные для отображения числа на главном дисплее и результирующего выражения на втором дисплее
 	var number_display, expression_display;
 	
-	// Функция для хранения типа округления
+	// Переменная для хранения типа округления
 	var round_type = 100;
 	
-	// Функция сброса переменных, отображающихся на дисплее
-	function reset() { number_display = "0"; expression_display = ""; };
+	// Переменная для хранения последней арифметической операции
+	var last_action = "";
+	
+	// Функция сброса основных переменных
+	function reset() { number_display = "0"; expression_display = ""; last_action = ""; };
 	
 	// Функция удаления последнего символа из числа
 	function deleteLast() { number_display = number_display.substring(0, number_display.length - 1); if (number_display.length === 0) number_display = "0"; };
@@ -119,15 +122,29 @@ document.addEventListener( "DOMContentLoaded", function() {
 			case (user_input === "="):
 				// Если ранее введенное число не заканчивается десятичным разделителем
 				if (!isCommaLast()) {
-					// Добавляем к результирующему выражению число
-					expression_display += number_display;
-					// На главный дисплей выводим результат математического выражения, полученного из строки в результирующем дисплее
-					var result = eval(expression_display);
-		
-					//alert((result - Math.floor(result)) !== 0);
 					
+					// Переменная для математического расчета
+					var result = 0;
+					
+					// Если результирующий дисплей не пустой
+					if (expression_display.length > 0) {
+						// Сохраняем последнюю введенный знак операции и число
+						last_action = expression_display[expression_display.length - 1] + number_display;
+						// Добавляем к результирующему выражению число
+						expression_display += number_display;
+						// Проводим математический расчет всего выражения
+						result = eval(expression_display);
+					}
+					
+					// Если результирующий дисплей пустой и все равно нажата клавиша "равно"
+					else {
+						// Проводим математический расчет между числом на главном дисплее и сохраненной последней операцией
+						result = eval(number_display + last_action);
+					}
+					
+					// Если полученный результат - не целое число, оругляем его до нужного количества знаком после запятой
 					if ((result - Math.floor(result)) !== 0) result = Math.round(result * round_type) / round_type;
-					
+					// Переменной для вывода на главный дисплей присваиваем результат математического выражения, полученного из строки в результирующем дисплее
 					number_display = String(result);
 					// Сбрасываем результирующий дисплей
 					expression_display = "";
